@@ -23,7 +23,21 @@ Object.keys(mdl.model)?.map(item => {
         return `\n  ${item}: ${value.type ? `{type: ${value.type.charAt(0).toUpperCase() + value.type.slice(1)}, ${Object.keys(value).filter(itm => itm != 'type').map(itm => ` ${itm}: ${value[itm]}`)}}` : value.split('"')[0]}`
     }
 })
-}
+},${config.baseModel ? 
+    Object.keys(config.baseModel).map(item => {
+        let value = config.baseModel[item]
+        let moduleNames = config.modules.map(itm => itm.name)
+        // console.log(moduleNames, value, (moduleNames?.includes(value) || moduleNames?.includes(value.type)))
+        if(moduleNames?.includes(value) || moduleNames?.includes(value.type)){
+            return `\n  ${item}: { type: mongoose.Schema.Types.ObjectId, ref: '${value.type ? value.type.charAt(0).toUpperCase() + value.type.slice(1) :value.charAt(0).toUpperCase() + value.slice(1)}'}`
+        }else{
+           
+            
+            return `\n  ${item}: ${value.type ? `{type: ${value.type.charAt(0).toUpperCase() + value.type.slice(1)}, ${Object.keys(value).filter(itm => itm != 'type').map(itm => ` ${itm}: ${value[itm]}`)}}` : value.split('"')[0]}`
+        }
+    })
+
+: null}
 };
             
 const ${mdl.name.toLowerCase()}Schema = new mongoose.Schema(model)

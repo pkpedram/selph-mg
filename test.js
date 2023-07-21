@@ -17,7 +17,12 @@ let conf = {
                 "num": "Number"
             }
         }
-    ]
+    ],
+    "baseModel": {
+        "isActive": {"type": "Boolean", "default": true},
+        "created_date": {"type": "Date", "default": "new Date()"},
+        "test": {"type": "test"}
+    }
   }
 const gen = async (config = Object, url = '') => {
     try {
