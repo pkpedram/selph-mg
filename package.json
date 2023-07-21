@@ -1,6 +1,6 @@
 {
   "name": "selph-mg",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/pkpedram/selph-mg/issues"
   },
-  "homepage": "https://github.com/pkpedram/selph-mg#readme"
+  "homepage": "https://github.com/pkpedram/selph-mg#readme",
+  "dependencies": {
+    "fs-extra": "^11.1.1",
+    "mkdirp": "^3.0.1"
+  }
 }
