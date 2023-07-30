@@ -20,7 +20,7 @@ Object.keys(mdl.model)?.map(item => {
     }else{
        
         
-        return `\n  ${item}: ${value.type ? `{type: ${value.type.charAt(0).toUpperCase() + value.type.slice(1)}, ${Object.keys(value).filter(itm => itm != 'type').map(itm => ` ${itm}: ${value[itm]}`)}}` : value.split('"')[0]}`
+        return `\n  ${item}: ${value.type ? `{type: ${(value.type == "File" || value.type == "file") ? "String" : value.type.charAt(0).toUpperCase() + value.type.slice(1)}, ${Object.keys(value).filter(itm => itm != 'type').map(itm => ` ${itm}: ${value[itm]}`)}}` : ((value.split('"')[0] == "file" || value.split('"')[0] == "File") ? "String" : value.split('"')[0])}`
     }
 })
 },${config.baseModel ? 

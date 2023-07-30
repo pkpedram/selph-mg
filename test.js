@@ -14,7 +14,11 @@ let conf = {
             "model": {
                 "test": {"type": "test"},
                 "testId": "test",
-                "num": "Number"
+                "num": "Number",
+                "file1": "file",
+                "file2": "File",
+                "file3": {type: "file"},
+                "file4": {type: "File"},
             }
         }
     ],
