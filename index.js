@@ -37,7 +37,9 @@ Object.keys(mdl.model)?.map(item => {
         }
     })
 
-: null}
+: null}${
+    config?.saveCreatorUsers ? `,\n  related_user: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},` : ''
+}
 };
             
 const ${mdl.name.toLowerCase()}Schema = new mongoose.Schema(model)

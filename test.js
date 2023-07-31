@@ -1,5 +1,6 @@
 const mg = require('./index')
 let conf = {
+    saveCreatorUsers: true,
     modules: [
         {
             "name": "test",
